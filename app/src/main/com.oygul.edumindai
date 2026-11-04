@@ -1,0 +1,97 @@
+package com.oygul.edumindai
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+
+private val Burgundy = Color(0xFF702B43)
+private val Cream = Color(0xFFFAF5F0)
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContent {
+            EduMindApp()
+        }
+    }
+}
+
+@Composable
+fun EduMindApp() {
+    MaterialTheme {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Cream)
+                .padding(22.dp)
+        ) {
+            Text(
+                text = "EduMind AI",
+                fontSize = 30.sp,
+                fontWeight = FontWeight.Bold,
+                color = Burgundy
+            )
+
+            Text(
+                text = "Learn smarter, not harder.",
+                color = Color.DarkGray,
+                fontSize = 14.sp
+            )
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            FeatureCard("📸", "AI Test Generator", "Kitob rasmlaridan test yaratish")
+            FeatureCard("🧠", "Flashcards", "Yangi ma'lumotlarni yodlash")
+            FeatureCard("🤖", "AI Tutor", "Sun'iy intellekt bilan o'rganish")
+            FeatureCard("📊", "My Progress", "O'z natijalaringni kuzatish")
+        }
+    }
+}
+
+@Composable
+fun FeatureCard(
+    emoji: String,
+    title: String,
+    description: String
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 7.dp),
+        shape = RoundedCornerShape(18.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.White
+        )
+    ) {
+        Row(
+            modifier = Modifier.padding(18.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(emoji, fontSize = 28.sp)
+
+            Spacer(modifier = Modifier.width(15.dp))
+
+            Column {
+                Text(
+                    title,
+                    fontWeight = FontWeight.Bold,
+                    color = Burgundy,
+                    fontSize = 17.sp
+                )
+                Text(description, color = Color.Gray, fontSize = 13.sp)
+            }
+        }
+    }
+}
