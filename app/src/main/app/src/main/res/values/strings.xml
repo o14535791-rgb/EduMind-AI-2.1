@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EduMind AI</string>
+    <string name="app_tagline">Learn smarter, not harder.</string>
+    <string name="test_generator">AI Test Generator</string>
+    <string name="flashcards">Flashcards</string>
+    <string name="ai_tutor">AI Tutor</string>
+    <string name="my_progress">My Progress</string>
+</resources>
